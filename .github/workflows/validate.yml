@@ -1,0 +1,33 @@
+name: Validate
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (for linters/tests)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies (if present)
+        run: |
+          if [ -f package.json ]; then npm ci; else echo "no package.json"; fi
+
+      - name: Run linter (if script exists)
+        run: |
+          if npm run | grep -q lint; then npm run lint; else echo "no lint script"; fi
+
+      - name: Run tests (if script exists)
+        run: |
+          if npm run | grep -q test; then npm test --silent; else echo "no test script"; fi
+
+      - name: Validate PR title
+        run: |
+          echo "PR title: ${{ github.event.pull_request.title }}"

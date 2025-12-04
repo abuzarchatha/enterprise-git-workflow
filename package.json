@@ -1,0 +1,18 @@
+{
+  "name": "enterprise-git-workflow",
+  "version": "0.0.0-development",
+  "private": true,
+  "scripts": {
+    "lint": "echo \"No linter configured. Add one to package.json\"",
+    "test": "echo \"No tests configured. Add tests to package.json\"",
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "semantic-release": "^19.0.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/commit-analyzer": "^9.0.0",
+    "@semantic-release/github": "^8.0.0",
+    "@semantic-release/npm": "^8.0.0",
+    "@semantic-release/release-notes-generator": "^12.0.0"
+  }
+}

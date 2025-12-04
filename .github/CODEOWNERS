@@ -1,0 +1,8 @@
+# CODEOWNERS file
+# Format: <pattern> <owner1> <owner2>
+/docs/ @docs-team
+.github/workflows/ @devops-team
+src/ @backend-team
+
+# Default fallback
+* @your-org/engineering
